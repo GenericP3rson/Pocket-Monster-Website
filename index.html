@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #background {
+                top: 0;
+                position: fixed;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: darkseagreen;
+            }
+            #top_bar {
+                top: 0;
+                left: 0;
+                position: fixed;
+                width: 100%;
+                height: 10%;
+                background-color: beige;
+            }
+            .buton {
+                position: relative;
+                float: left;
+                background-color:firebrick;
+                height: 90%;
+                width: 47%;
+                border-radius: 100px;
+                top: 0;
+                margin: 5px;
+                color: white;
+                text-align: center;
+                /* margin-top: 5%; */
+            }
+            #login {
+                position: relative;
+                top: 50vh;
+            }
+            #cam {
+                position: fixed;
+                top: 10%;
+                left: 0;
+                width: 100%;
+                height: 90%;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "background"></div>
+        <div id = "top_bar">
+            <div class = "buton" id = "catc"><br>Catch 'Em All AR</div>
+            <div class = "buton"><br>Your Pokemon</div>
+        </div>
+        <form id = "login" name="loginForm" method="post" action="loginServlet">
+                Username: <input type="text" name="username" /> <br />
+                Password: <input type="password" name="password" /> <br />
+                <input type="submit" value="Login" />
+        </form>
+        <iframe id = "cam" src="https://console.echoAR.xyz/arjs?key=plain-star-5431" allow="camera *;microphone *"></iframe>
+    </body>
+    <script>
+        let thing = false;
+        document.getElementById("catc").addEventListener("click", () => {
+            thing = !thing;
+            document.getElementById("cam").style.display = thing ? "block": "none";
+        })
+    </script>
+</html>
